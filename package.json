@@ -1,0 +1,27 @@
+{
+  "name": "teampg",
+  "version": "1.0.0",
+  "description": "teampg",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.1.2",
+    "jest": "^27.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsoh11/TeamProfileGEN.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsoh11/TeamProfileGEN/issues"
+  },
+  "homepage": "https://github.com/jsoh11/TeamProfileGEN#readme"
+}
