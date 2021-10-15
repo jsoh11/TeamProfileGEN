@@ -90,4 +90,18 @@ inquirer
         when: (answers) => answers.position === 'Intern'
       },
 
-    ])
+    ]).then ((response) =>{
+
+        if(response.position === "Manager"){
+            const manager = new Manager(response.name, response.id, response.email, response.officeNumber)
+            managerArray.push(manager)
+        } else if(response.position === "Engineer"){
+          const engineer = new Engineer(response.name, response.id, response.email, response.github) 
+          engineerArray.push(engineer)
+        }else {
+          const intern = new Intern(response.name, response.id, response.email, response.school) 
+          internArray.push(intern)
+        }
+  addEmployee();
+          });
+        }
