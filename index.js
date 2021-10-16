@@ -105,3 +105,103 @@ inquirer
   addEmployee();
           });
         }
+
+        function createManagerCard() {
+          let managerCard = "";
+          for (let i = 0; i < managerArray.length; i++) {
+            const data = managerArray[i];
+            managerCard += `
+            <div class="card-body">
+              <h5 class="card-title">${data.name}</h5>
+              <p class="card-text">${data.getRole()} </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">${data.id}</li> 
+              <li class="list-group-item">${data.getOfficeNumber()}</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">${data.email}</a>
+            </div>
+            `
+          }
+        return managerCard;
+        }
+        
+        function createInternCard() {
+          let internCard = "";
+          for (let i = 0; i < internArray.length; i++) {
+            const data = internArray[i];
+            internCard += `
+            <div class="card-body">
+              <h5 class="card-title">${data.name}</h5>
+              <p class="card-text">${data.getRole()} </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">${data.id}</li> 
+              <li class="list-group-item">${data.getSchool()}</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">${data.email}</a>
+          </div>
+            `
+          }
+        return internCard;
+        }
+        
+        function createEngineerCard() {
+          let engineerCard = "";
+          for (let i = 0; i < engineerArray.length; i++) {
+            const data = engineerArray[i];
+            engineerCard += `
+            
+            <div class="card-body">
+              <h5 class="card-title">${data.name}</h5>
+              <p class="card-text">${data.getRole()} </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">${data.id}</li> 
+              <li class="list-group-item">${data.getGithub()}</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">${data.email}</a>
+            </div>
+          
+            `
+          }
+        return engineerCard;
+        }
+        
+        function createTitleCard(){
+          for (let i = 0; i < titleArray.length; i++) {
+            const element = titleArray[i];
+        
+            return element
+            
+          }
+        }
+        
+        
+        function generateHTML() {
+        
+          fs.writeFile ("./index.html",  `<!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>${createTitleCard()}</title>
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+          </head>
+          <body>
+              <header class="p-3 mb-2 bg-primary text-white text-xl-center">${createTitleCard()}</header>
+              <div class="card d-flex justify-content-around" style="width: 18rem;">
+              ${createManagerCard()}
+              ${createInternCard()}
+              ${createEngineerCard()}      
+              </div>
+          </body>
+          </html>` , err => {
+            if(err) throw err
+        
+          })
+          }
